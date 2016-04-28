@@ -20,6 +20,7 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
+    # Test addition of all possible pair in array
     for i in 0...arr.length
         for j in i+1...arr.length
             if (arr[i] + arr[j]) == n
@@ -33,12 +34,18 @@ end
 # Part 2
 
 def hello(name)
+    "Hello, " + name 
 end
 
 def starts_with_consonant? s
+    s.match("^[B-DF-HJ-NP-TV-Zb-df-hj-np-tv-z]")    # Regex for first character is consonant
 end
 
 def binary_multiple_of_4? s
+    if s.match("^(0|1)+")   # Check valid binary string
+        return (s.to_i(2) % 4) == 0
+    end
+    false
 end
 
 # Part 3

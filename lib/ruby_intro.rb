@@ -2,9 +2,7 @@
 
 def sum arr
     total = 0
-    arr.each{ |number|
-        total += number
-    }
+    arr.each{|number| total += number}
     total
 end
 
@@ -34,15 +32,15 @@ end
 # Part 2
 
 def hello(name)
-    "Hello, " + name 
+    "Hello, " << name 
 end
 
 def starts_with_consonant? s
-    s.match("^[B-DF-HJ-NP-TV-Zb-df-hj-np-tv-z]")    # Regex for first character is consonant
+    s.downcase.match("^[b-df-hj-np-tv-z]")  # Regex for first character is consonant
 end
 
 def binary_multiple_of_4? s
-    if s.match("^(0|1)+")   # Check valid binary string
+    if s.match("^(0|1)+$")   # Check valid binary string
         return (s.to_i(2) % 4) == 0
     end
     false
@@ -67,6 +65,6 @@ class BookInStock
     attr_writer :isbn, :price
 
     def price_as_string
-        "$" + "%.2f" % @price
+        "$" << "%.2f" % @price
     end
 end
